@@ -1,7 +1,7 @@
 // JavaScript Variables
 
 var interval;
-var seconds = 60;
+var seconds = 20;
 var currentQuestionIndex = 0;
 
 // DOM elements
