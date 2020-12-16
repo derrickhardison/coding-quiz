@@ -91,7 +91,6 @@ function answerClick(event) {
     }
   }
   renderNextQuestion();
-  response();
 }
 
 function response() {
