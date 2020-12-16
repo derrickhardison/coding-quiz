@@ -8,6 +8,9 @@ var currentQuestionIndex = 0;
 
 var questionContentEl = document.getElementById("questionContent");
 var answerContentEl = document.getElementById("answerContent");
+var timerDisplayEl = document.getElementById("timerDisplay");
+
+// timerDisplayEl.textContent = seconds;
 
 var codeQuestions = [
   {
@@ -23,7 +26,7 @@ var codeQuestions = [
   },
 
   {
-    question: "Arrays in JavaScript can be used to store",
+    question: "Arrays in JavaScript can be used to store:",
     choices: [
       "numbers and strings",
       "other arrays",
@@ -37,7 +40,7 @@ var codeQuestions = [
     question:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
     choices: ["JavaScript", "terminal/bash", "for loops", "console log"],
-    correctAnswer: "parentheses",
+    correctAnswer: "console log",
   },
 
   {
@@ -65,7 +68,7 @@ function startTimer() {
       clearInterval(interval);
       gameOver();
     }
-    console.log(seconds);
+    //console.log(seconds);
   }, 1000);
 }
 
@@ -73,20 +76,30 @@ function gameOver() {
   alert("times up!");
 }
 
-function answerClick() {
-  //console.log("Clicked");
-  var userAnswer = (this.textContent);
-  var correctAnswer = (codeQuestions.correctAnswer);
+function answerClick(event) {
+  if (event.target.matches("button")) {
+    //console.log(event.target);
+
+    var answer = event.target.textContent;
+
+    if (codeQuestions[currentQuestionIndex].correctAnswer === answer) {
+      console.log("correct answer clicked");
+      currentQuestionIndex++;
+    } else {
+      console.log("wrong answer");
+      currentQuestionIndex++;
+    }
+  }
   renderNextQuestion();
   response();
 }
 
 function response() {
-    if (userAnswer === correctAnswer) {
-        currentQuestionIndex++;
-      } else {
-        alert("Wrong answer");
-      }
+  // if (userAnswer === correctAnswer) {
+  //     currentQuestionIndex++;
+  //   } else {
+  //     alert("Wrong answer");
+  //   }
 }
 
 function renderNextQuestion() {
@@ -101,10 +114,11 @@ function renderNextQuestion() {
     selectButton.addEventListener("click", answerClick);
     answerContentEl.appendChild(selectButton);
   }
-  currentQuestionIndex++;
 }
 
 // Function Calls
+
+// Event Listeners
 
 // Rough drafts
 //   var pTag = document.createElement("p");

@@ -13,7 +13,7 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/coding-quiz/assets/css/style.css"/>
+    <link rel="stylesheet" href="/coding-quiz/assets/css/style.css" />
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -26,6 +26,9 @@
     ></script>
   </head>
   <body>
+    <nav class="navbar navbar-light bg-light" id="timerDisplay">
+      <a class="navbar-brand" href="/coding-quiz/scores.html">View Highscores</a>
+    </nav>
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -34,20 +37,23 @@
       </div>
       <div class="row">
         <div class="col-10">
-          <h2 id = "questionContent">
+          <h2 id="questionContent">
             Try to answer the following code-related questions within the time
             limit. Keep in mind that incorrect answers will penalize your
             score/time by ten seconds!
           </h2>
           <div id="answerContent"></div>
+          <div id="correctMessage"></div>
         </div>
       </div>
-      <div class = "row">
-          <div class = "col">
-            <button type="button" class="btn btn-primary" id = "submitBtn">Start Quiz</button>
-          </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary" id="submitBtn">
+            Start Quiz
+          </button>
+        </div>
       </div>
     </div>
-    <script src ="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
